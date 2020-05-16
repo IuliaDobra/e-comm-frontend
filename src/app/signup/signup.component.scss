@@ -1,0 +1,13 @@
+.register-form {
+  width: 50%;
+  margin: 0 auto;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .full-width {
+    width: 100%;
+    float: none;
+  }
+}
