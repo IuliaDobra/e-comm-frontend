@@ -5,18 +5,29 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
-import {MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule, MatSelectModule} from '@angular/material';
+import {
+  MatButtonModule,
+  MatCardModule,
+  MatFormFieldModule, MatIconModule,
+  MatInputModule,
+  MatListModule, MatMenuModule,
+  MatSelectModule,
+  MatSidenavModule, MatToolbarModule
+} from '@angular/material';
 import { SignupComponent } from './signup/signup.component';
+import { JwtInterceptor } from './app-routing/jwt.interceptor';
+import { StoresComponent } from './stores/stores.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    StoresComponent
   ],
   imports: [
     BrowserModule,
@@ -31,8 +42,15 @@ import { SignupComponent } from './signup/signup.component';
     MatButtonModule,
     MatCardModule,
     MatSelectModule,
+    MatSidenavModule,
+    MatListModule,
+    MatIconModule,
+    MatMenuModule,
+    MatToolbarModule,
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

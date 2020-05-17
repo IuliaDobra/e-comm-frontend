@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../login/auth.service';
 import { Router } from '@angular/router';
 import {error} from 'util';
 
@@ -27,9 +27,9 @@ export class SignupComponent {
     console.log(this.registerForm.value);
     const { username, password, role } = this.registerForm.value;
 
-    this.authService.signUp(username, password, role).then(
-      () => this.router.navigateByUrl('/login'))
-      .catch((error) => console.log(error.message));
+    this.authService.signUp(username, password, role)
+      .then(() => this.router.navigateByUrl('/login'))
+      .catch(err => console.log(err.message));
   }
 
 }
