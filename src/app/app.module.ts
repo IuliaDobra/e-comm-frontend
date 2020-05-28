@@ -10,7 +10,7 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MatButtonModule,
-  MatCardModule,
+  MatCardModule, MatDialogModule,
   MatFormFieldModule, MatIconModule,
   MatInputModule,
   MatListModule, MatMenuModule,
@@ -20,6 +20,8 @@ import {
 import { SignupComponent } from './signup/signup.component';
 import { JwtInterceptor } from './app-routing/jwt.interceptor';
 import { StoresComponent } from './stores/stores.component';
+import { EditStoreModalComponent } from './stores/edit-store-modal/edit-store-modal.component';
+import { CreateStoreModalComponent } from './stores/create-store-modal/create-store-modal.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { StoresComponent } from './stores/stores.component';
     DashboardComponent,
     LoginComponent,
     SignupComponent,
-    StoresComponent
+    StoresComponent,
+    EditStoreModalComponent,
+    CreateStoreModalComponent
   ],
   imports: [
     BrowserModule,
@@ -47,10 +51,12 @@ import { StoresComponent } from './stores/stores.component';
     MatIconModule,
     MatMenuModule,
     MatToolbarModule,
+    MatDialogModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
   ],
+  entryComponents: [EditStoreModalComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

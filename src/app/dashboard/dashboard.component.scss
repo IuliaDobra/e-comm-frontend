@@ -1,24 +1,20 @@
-mat-sidenav-container, mat-sidenav-content, mat-sidenav {
-  height: 100%;
-}
-
-mat-sidenav {
+ mat-sidenav {
   width: 250px;
 }
 
 main {
   padding: 10px;
 }
-a{
+a {
   text-decoration: none;
   color: white;
 }
 
-a:hover, a:active{
+a:hover, a:active {
   color: lightgray;
 }
 
-.nav-caption{
+.nav-caption {
   display: inline-block;
   padding-left: 6px;
 }

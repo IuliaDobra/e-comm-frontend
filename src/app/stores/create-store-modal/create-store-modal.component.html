@@ -1,0 +1,43 @@
+<h1 mat-dialog-title>Create store</h1>
+<div mat-dialog-content>
+  <mat-form-field class="width-100">
+    <mat-label>Name</mat-label>
+    <input matInput [(ngModel)]="dialogData.name">
+  </mat-form-field>
+  <mat-form-field class="width-100">
+    <mat-label>IBAN</mat-label>
+    <input matInput [(ngModel)]="dialogData.iban">
+  </mat-form-field>
+  <mat-form-field class="width-100">
+    <mat-label>Bank</mat-label>
+    <input matInput [(ngModel)]="dialogData.bank">
+  </mat-form-field>
+  <mat-form-field class="width-100">
+    <mat-label>Address</mat-label>
+    <input matInput [(ngModel)]="dialogData.address">
+  </mat-form-field>
+  <div class="width-100 space-between">
+    <mat-form-field class="width-50">
+      <mat-label>Registering Number</mat-label>
+      <input matInput [(ngModel)]="dialogData.reg_number">
+    </mat-form-field>
+    <mat-form-field class="width-50">
+      <mat-label>CUI</mat-label>
+      <input matInput [(ngModel)]="dialogData.cui">
+    </mat-form-field>
+  </div>
+  <div class="width-100 space-between">
+    <mat-form-field class="width-50">
+      <mat-label>Phone Number</mat-label>
+      <input matInput [(ngModel)]="dialogData.phone_number">
+    </mat-form-field>
+    <mat-form-field class="width-50">
+      <mat-label>E-mail</mat-label>
+      <input matInput [(ngModel)]="dialogData.e_mail">
+    </mat-form-field>
+  </div>
+</div>
+<div class="modal-action-buttons" mat-dialog-actions>
+  <button mat-button (click)="close()">Cancel</button>
+  <button mat-raised-button color="primary" [mat-dialog-close]="dialogData" cdkFocusInitial>Save</button>
+</div>
