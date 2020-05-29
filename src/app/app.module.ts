@@ -22,6 +22,7 @@ import { JwtInterceptor } from './app-routing/jwt.interceptor';
 import { StoresComponent } from './stores/stores.component';
 import { EditStoreModalComponent } from './stores/edit-store-modal/edit-store-modal.component';
 import { CreateStoreModalComponent } from './stores/create-store-modal/create-store-modal.component';
+import { DeleteStoreModalComponent } from './stores/delete-store-modal/delete-store-modal.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { CreateStoreModalComponent } from './stores/create-store-modal/create-st
     SignupComponent,
     StoresComponent,
     EditStoreModalComponent,
-    CreateStoreModalComponent
+    CreateStoreModalComponent,
+    DeleteStoreModalComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +58,7 @@ import { CreateStoreModalComponent } from './stores/create-store-modal/create-st
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
   ],
-  entryComponents: [EditStoreModalComponent],
+  entryComponents: [EditStoreModalComponent, CreateStoreModalComponent, DeleteStoreModalComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -16,6 +16,10 @@ export class StoreService {
     return this.http.get(`${this.baseUrl}/stores`);
   }
 
+  addStore(store): Promise<any> {
+    return this.http.post(`${this.baseUrl}/stores`, store).toPromise();
+  }
+
   editStore(store: Store): Promise<any> {
     return this.http.patch(`${this.baseUrl}/stores/${store.id}`, {
       address: store.address,

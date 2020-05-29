@@ -4,6 +4,8 @@ import {Store} from '../services/store.model';
 import {MatDialog} from '@angular/material';
 import {EditStoreModalComponent} from './edit-store-modal/edit-store-modal.component';
 import {orderBy} from 'lodash';
+import {CreateStoreModalComponent} from './create-store-modal/create-store-modal.component';
+import {DeleteStoreModalComponent} from './delete-store-modal/delete-store-modal.component';
 
 @Component({
   selector: 'app-stores',
@@ -26,7 +28,11 @@ export class StoresComponent {
   }
 
   search(event) {
-    console.log(event.srcElement.value);
+    if (!!event.srcElement.value) {
+      this.storeService.findStores(event.srcElement.value).then(stores => this.stores = orderBy(stores, 'id', 'ASC'));
+    } else {
+      this.populateStores();
+    }
   }
 
   openDialog(store: Store) {
@@ -41,7 +47,21 @@ export class StoresComponent {
     });
   }
 
-  deleteStore(id: number) {
-    this.storeService.deleteStore(id).then(() => this.populateStores());
+  addStore() {
+    const dialogRef = this.dialog.open(CreateStoreModalComponent);
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.storeService.addStore(result).then(res => this.populateStores());
+      }
+    });
+  }
+
+  deleteStore(store: Store) {
+    const dialogRef = this.dialog.open(DeleteStoreModalComponent, { data: store });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.storeService.deleteStore(store.id).then(() => this.populateStores());
+      }
+    });
   }
 }
