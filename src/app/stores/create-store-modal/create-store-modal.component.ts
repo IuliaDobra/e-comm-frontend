@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {Store} from '../../services/store.model';
+import { Component } from '@angular/core';
+import {Store} from '../store.model';
 import {MatDialogRef} from '@angular/material';
 
 @Component({
@@ -7,13 +7,10 @@ import {MatDialogRef} from '@angular/material';
   templateUrl: './create-store-modal.component.html',
   styleUrls: ['./create-store-modal.component.scss']
 })
-export class CreateStoreModalComponent implements OnInit {
+export class CreateStoreModalComponent {
   dialogData: Store = new Store();
 
   constructor(private dialogRef: MatDialogRef<any>) { }
-
-  ngOnInit() {
-  }
 
   close() {
     this.dialogRef.close();

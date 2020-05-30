@@ -1,0 +1,42 @@
+<app-dashboard>
+  <div class="search">
+    <mat-form-field class="width-50" appearance="outline">
+      <mat-label>Search for a product</mat-label>
+      <input matInput type="search" (keyup)="search($event)">
+    </mat-form-field>
+  </div>
+  <div class="products-list-container">
+    <mat-card class="margin-20" *ngFor="let product of products">
+      <mat-card-content class="product-content">
+        <div class="product-images">
+          <img mat-card-sm-image src="/assets/images/Silver Earrings.jpg" alt="Product image">
+        </div>
+        <div class="product-info">
+          <span>{{product.name}}</span>
+          <p>{{product.description}}</p>
+          <div class="product-actions">
+            <div class="mat-card-button">
+              <button mat-mini-fab color="accent" aria-label="Edit product" (click)="editProduct(product)">
+                <mat-icon>edit</mat-icon>
+              </button>
+            </div>
+            <div class="mat-card-button">
+              <button mat-mini-fab color="accent" aria-label="Delete product" (click)="deleteProduct(product)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </div></div>
+
+        </div>
+        <div class="product-price">
+          <span>{{product.price}} {{product.currency}}</span>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</app-dashboard>
+
+<div class="add-item-container">
+  <button mat-fab color="accent" aria-label="Add store" (click)="createProduct()">
+    <mat-icon>add</mat-icon>
+  </button>
+</div>

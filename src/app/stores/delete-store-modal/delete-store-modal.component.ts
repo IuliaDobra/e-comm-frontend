@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material';
-import { Store } from '../../services/store.model';
+import { Store } from '../store.model';
 
 @Component({
   selector: 'app-delete-store',

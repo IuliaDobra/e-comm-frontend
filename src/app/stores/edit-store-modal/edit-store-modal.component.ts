@@ -1,7 +1,7 @@
-import {Component, Inject} from '@angular/core';
-import {MAT_DIALOG_DATA} from '@angular/material';
-import {Store} from '../../services/store.model';
-import {cloneDeep} from 'lodash';
+import { Component, Inject } from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material';
+import { Store } from '../store.model';
+import { cloneDeep } from 'lodash';
 
 @Component({
   selector: 'app-store-modal',

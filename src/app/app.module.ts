@@ -23,6 +23,10 @@ import { StoresComponent } from './stores/stores.component';
 import { EditStoreModalComponent } from './stores/edit-store-modal/edit-store-modal.component';
 import { CreateStoreModalComponent } from './stores/create-store-modal/create-store-modal.component';
 import { DeleteStoreModalComponent } from './stores/delete-store-modal/delete-store-modal.component';
+import { ProductsComponent } from './products/products.component';
+import { EditProductModalComponent } from './products/edit-product-modal/edit-product-modal.component';
+import { DeleteProductModalComponent } from './products/delete-product-modal/delete-product-modal.component';
+import { CreateProductModalComponent } from './products/create-product-modal/create-product-modal.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +37,11 @@ import { DeleteStoreModalComponent } from './stores/delete-store-modal/delete-st
     StoresComponent,
     EditStoreModalComponent,
     CreateStoreModalComponent,
-    DeleteStoreModalComponent
+    DeleteStoreModalComponent,
+    ProductsComponent,
+    EditProductModalComponent,
+    DeleteProductModalComponent,
+    CreateProductModalComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +66,14 @@ import { DeleteStoreModalComponent } from './stores/delete-store-modal/delete-st
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
   ],
-  entryComponents: [EditStoreModalComponent, CreateStoreModalComponent, DeleteStoreModalComponent],
+  entryComponents: [
+    EditStoreModalComponent,
+    CreateStoreModalComponent,
+    DeleteStoreModalComponent,
+    EditProductModalComponent,
+    DeleteProductModalComponent,
+    CreateProductModalComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

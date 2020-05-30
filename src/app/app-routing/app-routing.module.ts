@@ -6,6 +6,7 @@ import { SignupComponent } from '../signup/signup.component';
 import { AuthGuard } from './auth.guard';
 import {Role} from '../login/role.enum';
 import {StoresComponent} from '../stores/stores.component';
+import {ProductsComponent} from '../products/products.component';
 
 const routes: Routes = [
   {
@@ -28,7 +29,14 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     data: { roles: [Role.SELLER, Role.ADMIN] }
   },
-  { path:  '**', redirectTo: 'login', pathMatch:  'full' },
+  {
+    path: 'stores/:storeId/products',
+    component: ProductsComponent,
+    canActivate: [AuthGuard],
+    data: { roles: [Role.SELLER] }
+  },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: '**', redirectTo: 'stores', pathMatch:  'full' },
 ];
 
 @NgModule({

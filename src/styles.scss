@@ -16,7 +16,33 @@ body {
   width: 48%;
 }
 
+.margin-20 {
+  margin: 20px auto;
+  width: 50%;
+}
+
+.margin-15 {
+  margin: 15px;
+}
+
 .space-between {
   display: flex;
   justify-content: space-between;
+}
+
+.search {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+  margin: 0 auto;
+  mat-form-field {
+    width: 100%;
+  }
+}
+
+.add-item-container {
+  position: fixed;
+  right: calc(100% - (100% - 40px));
+  bottom: calc(100% - (100% - 40px));;
+  z-index: 2;
 }

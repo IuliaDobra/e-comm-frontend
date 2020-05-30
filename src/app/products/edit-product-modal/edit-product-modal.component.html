@@ -1,0 +1,25 @@
+<h1 mat-dialog-title>Edit product {{dialogData.name}}</h1>
+<div mat-dialog-content>
+  <mat-form-field class="width-100">
+    <mat-label>Description</mat-label>
+    <input matInput [(ngModel)]="dialogData.description">
+  </mat-form-field>
+  <mat-form-field class="width-100">
+    <mat-label>Category</mat-label>
+    <input matInput [(ngModel)]="dialogData.category">
+  </mat-form-field>
+  <div class="width-100 space-between">
+    <mat-form-field class="width-50">
+      <mat-label>Price</mat-label>
+      <input matInput [(ngModel)]="dialogData.price">
+    </mat-form-field>
+    <mat-form-field class="width-50">
+      <mat-label>Currency</mat-label>
+      <input matInput [(ngModel)]="dialogData.currency">
+    </mat-form-field>
+  </div>
+</div>
+<div class="modal-action-buttons" mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="data">Cancel</button>
+  <button mat-raised-button color="primary" [mat-dialog-close]="dialogData" cdkFocusInitial>Save</button>
+</div>

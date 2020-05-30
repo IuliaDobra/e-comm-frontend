@@ -1,5 +1,5 @@
 <app-dashboard>
-  <div class="search-store">
+  <div class="search">
     <mat-form-field class="width-50" appearance="outline">
       <mat-label>Search for a store</mat-label>
       <input matInput type="search" (keyup)="search($event)">
@@ -13,7 +13,12 @@
         </mat-card-title>
         <div class="header-action">
           <div class="mat-card-button">
-            <button mat-mini-fab color="accent" aria-label="Add product" (click)="openDialog(store)">
+            <button mat-mini-fab color="accent" aria-label="Add product" (click)="goToProductList(store.id)">
+              <mat-icon>shop</mat-icon>
+            </button>
+          </div>
+          <div class="mat-card-button">
+            <button mat-mini-fab color="accent" aria-label="Add product" (click)="editStore(store)">
               <mat-icon>edit</mat-icon>
             </button>
           </div>
@@ -37,7 +42,7 @@
   </div>
 </app-dashboard>
 
-<div class="add-store-container">
+<div class="add-item-container">
   <button mat-fab color="accent" aria-label="Add store" (click)="addStore()">
     <mat-icon>add</mat-icon>
   </button>

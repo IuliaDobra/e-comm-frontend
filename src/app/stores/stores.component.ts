@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import { StoreService } from '../services/store.service';
-import {Store} from '../services/store.model';
-import {MatDialog} from '@angular/material';
-import {EditStoreModalComponent} from './edit-store-modal/edit-store-modal.component';
-import {orderBy} from 'lodash';
-import {CreateStoreModalComponent} from './create-store-modal/create-store-modal.component';
-import {DeleteStoreModalComponent} from './delete-store-modal/delete-store-modal.component';
+import { MatDialog } from '@angular/material';
+import { Router } from '@angular/router';
+import { orderBy } from 'lodash';
+import { Store } from './store.model';
+import { StoreService } from './store.service';
+import { EditStoreModalComponent } from './edit-store-modal/edit-store-modal.component';
+import { CreateStoreModalComponent } from './create-store-modal/create-store-modal.component';
+import { DeleteStoreModalComponent } from './delete-store-modal/delete-store-modal.component';
 
 @Component({
   selector: 'app-stores',
@@ -17,17 +18,18 @@ export class StoresComponent {
 
   constructor(
     private storeService: StoreService,
+    private router: Router,
     public dialog: MatDialog,
     ) {
     this.populateStores();
   }
 
-  populateStores() {
+  populateStores(): void {
     this.storeService.getAllStores()
       .subscribe(stores => this.stores = orderBy(stores, 'id', 'ASC'));
   }
 
-  search(event) {
+  search(event): void {
     if (!!event.srcElement.value) {
       this.storeService.findStores(event.srcElement.value).then(stores => this.stores = orderBy(stores, 'id', 'ASC'));
     } else {
@@ -35,7 +37,11 @@ export class StoresComponent {
     }
   }
 
-  openDialog(store: Store) {
+  goToProductList(storeId: number): void {
+    this.router.navigateByUrl(`stores/${storeId}/products`);
+  }
+
+  editStore(store: Store): void {
     const dialogRef = this.dialog.open(EditStoreModalComponent, {
       data: store,
     });
@@ -47,7 +53,7 @@ export class StoresComponent {
     });
   }
 
-  addStore() {
+  addStore(): void {
     const dialogRef = this.dialog.open(CreateStoreModalComponent);
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
@@ -56,7 +62,7 @@ export class StoresComponent {
     });
   }
 
-  deleteStore(store: Store) {
+  deleteStore(store: Store): void {
     const dialogRef = this.dialog.open(DeleteStoreModalComponent, { data: store });
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
