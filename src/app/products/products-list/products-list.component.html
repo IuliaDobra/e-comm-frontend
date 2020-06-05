@@ -1,0 +1,25 @@
+<mat-toolbar color="primary">
+  <mat-icon matBadge={{cart.items?.length}} matBadgeColor="warn" (click)="toggleCart()" class="shopping-cart">shopping_cart</mat-icon>
+  <span>Cart</span>
+</mat-toolbar>
+<div class="products-list">
+  <div class="search">
+    <mat-form-field class="width-50" appearance="outline">
+      <mat-label>Search for a product</mat-label>
+      <input matInput type="search" (keyup)="search($event)">
+    </mat-form-field>
+  </div>
+  <mat-card class="product-content" *ngFor="let product of products">
+    <img mat-card-lg-image src="/assets/images/Silver Earrings.jpg" alt="Product image">
+    <h3 class="product-title">{{product.name}}</h3>
+    <div class="product-price">
+      <p>{{product.price}} {{product.currency}}</p>
+    </div>
+    <div>
+      <button mat-raised-button color="accent" (click)="addToCart(product)">
+        <mat-icon>add_shopping_cart</mat-icon>
+        <span>Add to cart</span>
+      </button>
+    </div>
+  </mat-card>
+</div>

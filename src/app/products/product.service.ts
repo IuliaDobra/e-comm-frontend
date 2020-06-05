@@ -12,12 +12,20 @@ export class ProductService {
 
   constructor(private http: HttpClient) {}
 
+  getAllProducts(): Promise<Product[]> {
+    return this.http.get<Product[]>(`${this.baseUrl}/products`).toPromise();
+  }
+
   getProductsForStore(storeId: number): Observable<Product[]> {
     return this.http.get<Product[]>(`${this.baseUrl}/products?storeId=${storeId}`);
   }
 
-  findProducts(search, storeId): Observable<Product[]> {
+  findProductsInStore(search, storeId): Observable<Product[]> {
     return this.http.get<Product[]>(`${this.baseUrl}/products?storeId=${storeId}&search=${search}`);
+  }
+
+  findProducts(search): Observable<Product[]> {
+    return this.http.get<Product[]>(`${this.baseUrl}/products?search=${search}`);
   }
 
   createProduct(product: Product): Observable<Product> {

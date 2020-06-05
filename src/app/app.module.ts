@@ -9,13 +9,14 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 import {
-  MatButtonModule,
-  MatCardModule, MatDialogModule,
-  MatFormFieldModule, MatIconModule,
-  MatInputModule,
-  MatListModule, MatMenuModule,
-  MatSelectModule,
-  MatSidenavModule, MatToolbarModule
+    MatBadgeModule,
+    MatButtonModule,
+    MatCardModule, MatDialogModule,
+    MatFormFieldModule, MatIconModule,
+    MatInputModule,
+    MatListModule, MatMenuModule,
+    MatSelectModule,
+    MatSidenavModule, MatToolbarModule
 } from '@angular/material';
 import { SignupComponent } from './signup/signup.component';
 import { JwtInterceptor } from './app-routing/jwt.interceptor';
@@ -27,6 +28,9 @@ import { ProductsComponent } from './products/products.component';
 import { EditProductModalComponent } from './products/edit-product-modal/edit-product-modal.component';
 import { DeleteProductModalComponent } from './products/delete-product-modal/delete-product-modal.component';
 import { CreateProductModalComponent } from './products/create-product-modal/create-product-modal.component';
+import { ProductsListComponent } from './products/products-list/products-list.component';
+import { ProductComponent } from './products/product/product.component';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -41,28 +45,32 @@ import { CreateProductModalComponent } from './products/create-product-modal/cre
     ProductsComponent,
     EditProductModalComponent,
     DeleteProductModalComponent,
-    CreateProductModalComponent
+    CreateProductModalComponent,
+    ProductsListComponent,
+    ProductComponent,
+    CartComponent
   ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    HttpClientModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    NoopAnimationsModule,
-    ReactiveFormsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule,
-    MatCardModule,
-    MatSelectModule,
-    MatSidenavModule,
-    MatListModule,
-    MatIconModule,
-    MatMenuModule,
-    MatToolbarModule,
-    MatDialogModule
-  ],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        HttpClientModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        NoopAnimationsModule,
+        ReactiveFormsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatButtonModule,
+        MatCardModule,
+        MatSelectModule,
+        MatSidenavModule,
+        MatListModule,
+        MatIconModule,
+        MatMenuModule,
+        MatToolbarModule,
+        MatDialogModule,
+        MatBadgeModule
+    ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
   ],

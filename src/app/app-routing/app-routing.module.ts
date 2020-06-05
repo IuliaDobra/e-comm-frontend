@@ -7,6 +7,8 @@ import { AuthGuard } from './auth.guard';
 import {Role} from '../login/role.enum';
 import {StoresComponent} from '../stores/stores.component';
 import {ProductsComponent} from '../products/products.component';
+import {ProductsListComponent} from '../products/products-list/products-list.component';
+import {CartComponent} from '../cart/cart.component';
 
 const routes: Routes = [
   {
@@ -34,6 +36,18 @@ const routes: Routes = [
     component: ProductsComponent,
     canActivate: [AuthGuard],
     data: { roles: [Role.SELLER] }
+  },
+  {
+    path: 'products',
+    component: ProductsListComponent,
+    canActivate: [AuthGuard],
+    data: { roles: [Role.BUYER] }
+  },
+  {
+    path: 'cart',
+    component: CartComponent,
+    canActivate: [AuthGuard],
+    data: { roles: [Role.BUYER] }
   },
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: '**', redirectTo: 'stores', pathMatch:  'full' },

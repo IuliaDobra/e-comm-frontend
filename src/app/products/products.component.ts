@@ -37,7 +37,7 @@ export class ProductsComponent implements OnInit {
 
   search(event): void {
     if (!!event.srcElement.value) {
-      this.productsService.findProducts(event.srcElement.value, this.storeId)
+      this.productsService.findProductsInStore(event.srcElement.value, this.storeId)
         .subscribe(products => this.products = orderBy(products, 'id', 'ASC'));
     } else {
       this.getProductsForStore();

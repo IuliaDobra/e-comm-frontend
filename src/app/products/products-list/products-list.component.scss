@@ -1,0 +1,20 @@
+.products-list {
+  margin: 0 auto;
+  width: 60%;
+  .search {
+    margin-top: 30px;
+  }
+  mat-card {
+    background: white;
+    width: 170px;
+    float: left;
+    margin: 10px;
+    text-align: center;
+    .product-title {
+      height: 2em; // that's one line, 2em for 2 lines, etc...
+      line-height: 1em;
+    }
+  }
+}
+
+
