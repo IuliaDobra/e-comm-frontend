@@ -10,6 +10,8 @@ import {Router} from '@angular/router';
 })
 export class CartComponent implements OnInit {
   products: Product[] = [];
+  total: number;
+  currency: string;
 
   constructor(
     private cartService: CartService,
@@ -17,7 +19,15 @@ export class CartComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.cartService.sharedCart.subscribe(cart => this.products = cart.items);
+    this.cartService.sharedCart.subscribe(cart => {
+      this.products = cart.items;
+      this.total = cart.total;
+      this.currency = cart.currency;
+    });
+  }
+
+  deleteProductFromCart(product: Product) {
+
   }
 
   goToShop() {

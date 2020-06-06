@@ -1,6 +1,11 @@
 <mat-toolbar color="primary">
-  <mat-icon matBadge={{cart.items?.length}} matBadgeColor="warn" (click)="toggleCart()" class="shopping-cart">shopping_cart</mat-icon>
-  <span>Cart</span>
+  <div class="width-60 centered-text">
+    <h1 class="logo">Crafty</h1>
+    <div class="cart">
+      <mat-icon matBadge={{cart.items?.length}} matBadgeColor="warn" (click)="toggleCart()" class="shopping-cart">shopping_cart</mat-icon>
+      <span (click)="toggleCart()">Cart</span>
+    </div>
+  </div>
 </mat-toolbar>
 <div class="products-list">
   <div class="search">

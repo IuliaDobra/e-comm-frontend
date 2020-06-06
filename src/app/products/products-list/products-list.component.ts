@@ -22,6 +22,7 @@ export class ProductsListComponent implements OnInit {
   ) {
     this.cart.items = [];
     this.cart.total = 0;
+    this.cart.currency = 'Lei';
   }
 
   ngOnInit() {

@@ -1,6 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
+@font-face {
+  font-family: 'CraftyFont';
+  src: url('assets/fonts/JoannaCombsDemoRegular.ttf')  format('truetype') /* Safari, Android, iOS */
+}
+
 html, body { height: 100%; }
 body {
   margin: 0;
@@ -14,6 +19,15 @@ body {
 
 .width-50 {
   width: 48%;
+}
+
+.width-60 {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.centered-text {
+  text-align: center;
 }
 
 .margin-20 {
